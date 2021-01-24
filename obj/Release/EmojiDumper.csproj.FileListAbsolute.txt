@@ -2,10 +2,12 @@ C:\Users\trymz\RiderProjects\EmojiDumper\bin\Release\EmojiDumper.exe
 C:\Users\trymz\RiderProjects\EmojiDumper\bin\Release\EmojiDumper.pdb
 C:\Users\trymz\RiderProjects\EmojiDumper\bin\Release\Leaf.xNet.xml
 C:\Users\trymz\RiderProjects\EmojiDumper\bin\Release\Newtonsoft.Json.xml
-C:\Users\trymz\RiderProjects\EmojiDumper\bin\Release\System.Diagnostics.DiagnosticSource.xml
+C:\Users\trymz\RiderProjects\EmojiDumper\bin\Release\Serilog.xml
+C:\Users\trymz\RiderProjects\EmojiDumper\bin\Release\Serilog.Sinks.Console.xml
 C:\Users\trymz\RiderProjects\EmojiDumper\obj\Release\EmojiDumper.csprojAssemblyReference.cache
 C:\Users\trymz\RiderProjects\EmojiDumper\obj\Release\EmojiDumper.csproj.CoreCompileInputs.cache
-C:\Users\trymz\RiderProjects\EmojiDumper\obj\Release\EmojiDumper.csproj.Fody.CopyLocal.cache
 C:\Users\trymz\RiderProjects\EmojiDumper\obj\Release\EmojiDumper.csproj.CopyComplete
 C:\Users\trymz\RiderProjects\EmojiDumper\obj\Release\EmojiDumper.exe
 C:\Users\trymz\RiderProjects\EmojiDumper\obj\Release\EmojiDumper.pdb
+C:\Users\trymz\RiderProjects\EmojiDumper\bin\Release\System.Diagnostics.DiagnosticSource.xml
+C:\Users\trymz\RiderProjects\EmojiDumper\obj\Release\EmojiDumper.csproj.Fody.CopyLocal.cache

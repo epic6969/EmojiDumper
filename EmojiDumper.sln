@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmojiDumper", "EmojiDumper.csproj", "{CEA449BE-B1CE-488C-BE98-B846A729F9C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmojiDumper", "EmojiDumper.csproj", "{9C3D98FF-F26A-476F-97C7-F61353C7C3D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +8,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CEA449BE-B1CE-488C-BE98-B846A729F9C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CEA449BE-B1CE-488C-BE98-B846A729F9C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CEA449BE-B1CE-488C-BE98-B846A729F9C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CEA449BE-B1CE-488C-BE98-B846A729F9C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C3D98FF-F26A-476F-97C7-F61353C7C3D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C3D98FF-F26A-476F-97C7-F61353C7C3D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C3D98FF-F26A-476F-97C7-F61353C7C3D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C3D98FF-F26A-476F-97C7-F61353C7C3D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,54 +1,44 @@
 ﻿using System;
-using System.Drawing;
 using System.IO;
-using System.Threading;
-using Console = Colorful.Console;
+using System.Linq;
 using Discord;
-using Discord.Gateway;
 using Discord.Commands;
+using Discord.Gateway;
 using Leaf.xNet;
+using Serilog;
+using Serilog.Core;
 
 namespace EmojiDumper
 {
-    internal class Program
+    internal static class Program
     {
-        private static DiscordSocketClient client = new DiscordSocketClient();
+        private static DiscordSocketClient client = new();
+        private static Logger log = new LoggerConfiguration().WriteTo.Console().CreateLogger();
         public static void Main(string[] args)
         {
-            Console.Write("> [TOKEN]: ", Color.Yellow);
+            Console.Write("Discord Token: ");
             var token = Console.ReadLine();
-            client.OnLoggedIn += (socketClient, eventArgs) => Console.WriteLine($"Logged in as {eventArgs.User.Username}!");
-            client.Token = token;
-            client.Login(client.Token);
+            client.OnLoggedIn += (_, eArgs) => log.Information($"Successfully logged in as {eArgs.User}!");
+            client.OnLoggedOut += (_, eArgs) => log.Information($"Logged out of User, reason: {eArgs.Reason}!");
             client.CreateCommandHandler("e!");
-            Thread.Sleep(-1);
+            client.Login(token);
         }
-        [Command("dump", "Dumps all emojis in a guild")]
-        private class  Dump : ICommand
+
+        [Command("dump", "Dumps all emojis in a guild.")]
+        public class DumpCommand : CommandBase
         {
-            public void Execute(DiscordSocketClient client, DiscordMessage message)
+            public override void Execute()
             {
-                message.Delete();
-                var path = $"{Environment.CurrentDirectory}/{message.Guild.Id}";
-                if (Directory.Exists(path))
-                    Directory.Delete(path);
+                Message.Delete();
+                var path = $"{Environment.CurrentDirectory}/{Message.Guild.Id}";
                 Directory.CreateDirectory(path);
-                var req = new HttpRequest {Cookies = new CookieStorage(), Authorization = client.Token, KeepAlive = true, UserAgent = Http.RandomUserAgent(), IgnoreProtocolErrors = true};
-                foreach (var emoji in message.Guild.GetEmojis())
+                var req = new HttpRequest {Cookies = new CookieStorage(), Authorization = client.Token, KeepAlive = true, UserAgent = Http.RandomUserAgent(), IgnoreProtocolErrors = true, ConnectTimeout = 10000};
+                Message.Guild.GetEmojis().ToList().ForEach(delegate(DiscordEmoji emoji)
                 {
-                    if (!emoji.Available) continue;
-                    var p = emoji.Animated ? ".gif" : ".png";
-                    try
-                    {
-                        req.Get(emoji.Icon.Url).ToFile($"{path}/{emoji.Name}{p}");
-                        Console.WriteLine($"Dumped {emoji.Name}{p}!", Color.Green);
-                    }
-                    catch (Exception)
-                    {
-                        Console.WriteLine($"Couldn't dump {emoji.Name}{p}!", Color.Red);
-                    }
-                }
-                Console.WriteLine("> [DONE]: Dumped all emojis in guild!", Color.Fuchsia);
+                    req.Get(emoji.Icon.Url).ToFile(emoji.Animated ? $"{path}/{emoji.Name}.gif" : $"{path}/{emoji.Name}.png");
+                    Log.Information($"Dumped Emoji: {emoji.Name} - Animated: {emoji.Animated}");
+                });
+                log.Information($"Done, downloaded all emojis to {path}!");
             }
         }
     }
