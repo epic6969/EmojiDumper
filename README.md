@@ -1,12 +1,7 @@
 # EmojiDumper
-This program downloads all emojis in a discord server.
-I am not responsible for how you use this as you can get banned.
+- This program downloads all emojis in a discord server.
+- I am not responsible for how you use this as you can get banned.
 
 How to use:
-Go in a chat in a server you would want to get emojis from.
-Write "e!dump", and it will start downloading the emojis.
-
-Emoj Dumping Process:
- - Gets all emojis in server.
- - Creates an HTTP Request and saves the Icons/Images of the emojis to files.
- - Done!
+- Input token when asked.
+- Go in a text channel in a guild you would want to get emojis from. Write "e!dump", and it download all of the emojis from that guild.
